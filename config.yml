@@ -31,12 +31,13 @@ params:
   exitMessage: "[Process completed — closing secure session]"
 
   greeting: |
-    .  .                    .-.  .
-    |\/| .-. .--. .-. .--.  \ \ |-.
-    |  | `-| |  | (.-' `--.  _) )| |
-    '  ' `-' '--' `--''--' '---''- `
+    __  __                        ____  _
+    |  \/  | __ _ _ __ ___  ___  / ___|| |__
+    | |\/| |/ _` | '__/ _ \/ _ \ \___ \| '_ \
+    | |  | | (_| | | |  __/ (_) | ___) | | | |
+    |_|  |_|\__,_|_|  \___|\___/ |____/|_| |_|
 
-    Senior Security Consultant | AI-Enhanced Engineering | 8+ Years @ Palo Alto Networks
+    Senior Security Consultant ~ AI-Enhanced Engineering ~ 8+ Years @ Palo Alto Networks
 
     Type 'help' for available commands
     Pro tip: check out my lab notes at https://mareox.github.io/homelab-journal/
@@ -86,7 +87,7 @@ params:
   social:
     details:
       - name: "linkedin"
-        url: "https://linkedin.com/in/mareox"
+        url: "https://www.linkedin.com/in/mareox/"
       - name: "github"
         url: "https://github.com/mareox"
       - name: "homelab journal"
