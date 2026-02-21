@@ -28,6 +28,7 @@ params:
 
   listLS: true
   source: false
+  resumeFile: "/Mario_Sanchez_Resume.pdf"
   exitMessage: "[Process completed — closing secure session]"
 
   greeting: |
