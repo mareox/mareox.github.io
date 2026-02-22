@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Sanchez — Senior Security Consultant | Palo Alto Networks</title>
+  <meta name="description" content="Senior Security Consultant & AI-Enhanced Engineering Pioneer at Palo Alto Networks. 8+ years of enterprise security expertise across SASE, ZTNA, and cloud security.">
+  <meta name="author" content="Mario Sanchez">
+  <meta property="og:title" content="Mario Sanchez — Senior Security Consultant">
+  <meta property="og:description" content="Enterprise security expertise, AI-enhanced engineering, and hands-on infrastructure.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ──────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #0f1724;
+      --bg-secondary: #162033;
+      --bg-card: #1a2740;
+      --bg-card-hover: #1f2f4d;
+      --text-primary: #e8edf5;
+      --text-secondary: #8b9fc2;
+      --text-muted: #5a6f94;
+      --accent-red: #ff6b3d;
+      --accent-red-dim: rgba(255, 107, 61, 0.15);
+      --accent-blue: #3d8bff;
+      --accent-blue-dim: rgba(61, 139, 255, 0.15);
+      --accent-green: #3dff8b;
+      --accent-green-dim: rgba(61, 255, 139, 0.1);
+      --accent-yellow: #ffc93d;
+      --accent-purple: #a87bff;
+      --border-color: #243352;
+      --border-glow: rgba(255, 107, 61, 0.3);
+      --nav-height: 64px;
+      --max-width: 1100px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-blue); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-red); }
+
+    ::selection { background: var(--accent-red-dim); color: var(--accent-red); }
+
+    /* ── Navigation ────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(15, 23, 36, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .nav-brand span { color: var(--accent-red); }
+
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); background: var(--bg-card); }
+    .nav-links a.active { color: var(--accent-red); background: var(--accent-red-dim); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    /* ── Sections ──────────────────────────────── */
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-red);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    /* ── Hero ──────────────────────────────────── */
+    #hero {
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) + 3rem);
+      padding-bottom: 3rem;
+    }
+
+    .hero-content { width: 100%; }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent-green);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .hero-title strong { color: var(--accent-red); font-weight: 600; }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-red);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #ff8a65;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(255, 107, 61, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      background: var(--accent-blue-dim);
+    }
+
+    .hero-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .hero-social a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      transition: color 0.2s;
+    }
+
+    .hero-social a:hover { color: var(--accent-blue); }
+
+    /* ── About / Metrics ──────────────────────── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .metric-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      font-family: var(--font-mono);
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 800px;
+    }
+
+    .about-text strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── AI Section ────────────────────────────── */
+    .ai-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ai-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .ai-card:hover::before { opacity: 1; }
+
+    .ai-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .ai-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .ai-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .ai-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .ai-card .highlight {
+      display: inline-block;
+      background: var(--accent-red-dim);
+      color: var(--accent-red);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+    }
+
+    .ai-card ul {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+
+    .ai-card ul li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .ai-card ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: bold;
+    }
+
+    /* ── Experience Timeline ───────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-red), var(--accent-blue), var(--accent-green));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-red);
+      background: var(--bg-primary);
+    }
+
+    .timeline-item:nth-child(2)::before { border-color: var(--accent-yellow); }
+    .timeline-item:nth-child(3)::before { border-color: var(--accent-blue); }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-red);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item:nth-child(2) .timeline-date { color: var(--accent-yellow); }
+    .timeline-item:nth-child(3) .timeline-date { color: var(--accent-blue); }
+
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-location {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-bullets { list-style: none; }
+
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+    }
+
+    .timeline-item:nth-child(2) .timeline-bullets li::before { color: var(--accent-yellow); }
+    .timeline-item:nth-child(3) .timeline-bullets li::before { color: var(--accent-blue); }
+
+    /* ── Skills ────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-group h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .skill-tag {
+      font-size: 0.82rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .skill-tag.red {
+      background: var(--accent-red-dim);
+      color: var(--accent-red);
+      border: 1px solid rgba(255, 107, 61, 0.25);
+    }
+
+    .skill-tag.blue {
+      background: var(--accent-blue-dim);
+      color: var(--accent-blue);
+      border: 1px solid rgba(61, 139, 255, 0.25);
+    }
+
+    .skill-tag.green {
+      background: var(--accent-green-dim);
+      color: var(--accent-green);
+      border: 1px solid rgba(61, 255, 139, 0.2);
+    }
+
+    .skill-tag.purple {
+      background: rgba(168, 123, 255, 0.12);
+      color: var(--accent-purple);
+      border: 1px solid rgba(168, 123, 255, 0.25);
+    }
+
+    .skill-tag.yellow {
+      background: rgba(255, 201, 61, 0.1);
+      color: var(--accent-yellow);
+      border: 1px solid rgba(255, 201, 61, 0.2);
+    }
+
+    .skill-tag:hover { transform: translateY(-1px); }
+
+    /* ── Projects ──────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .project-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      margin-top: 1rem;
+    }
+
+    .project-link:hover { color: var(--accent-red); }
+
+    /* ── Certifications ────────────────────────── */
+    .certs-list { list-style: none; }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cert-item:last-child { border-bottom: none; }
+
+    .cert-year {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      min-width: 4rem;
+    }
+
+    .cert-name {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .cert-name .cert-highlight {
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    /* ── Education ─────────────────────────────── */
+    .education-item {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .education-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .education-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Footer ────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border-color);
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-left p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover { color: var(--accent-red); }
+
+    /* ── Responsive ────────────────────────────── */
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 1.25rem; }
+
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 36, 0.98);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
+        gap: 0.25rem;
+      }
+
+      .nav-toggle { display: block; }
+
+      .hero-name { font-size: 2.25rem; }
+
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .ai-pillars { grid-template-columns: 1fr; }
+
+      .timeline { padding-left: 1.5rem; }
+      .timeline-item { padding-left: 1rem; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand"><span>mario</span>@security<span>:</span>~$</div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" role="navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#ai">AI Engineering</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certs</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">// Senior Security Consultant</p>
+      <h1 class="hero-name">Mario Sanchez</h1>
+      <p class="hero-title">Enterprise Security &amp; <strong>AI-Enhanced Engineering</strong> at Palo Alto Networks</p>
+      <p class="hero-tagline">
+        Trusted advisor for one of PANW's largest global SASE deployments.
+        8+ years bridging security architecture, cloud infrastructure, and applied AI
+        to protect 100,000+ users across 34 regions.
+      </p>
+      <div class="hero-actions">
+        <a href="static/Mario_Sanchez_Resume.pdf" class="btn btn-primary" download>
+          ↓ Download Resume
+        </a>
+        <a href="#about" class="btn btn-outline">Learn More</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/mareox/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/mareox" target="_blank" rel="noopener">github</a>
+        <a href="https://mareox.github.io/homelab-journal/" target="_blank" rel="noopener">homelab journal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ───────────────────────────────── -->
+  <section id="about">
+    <p class="section-label">// About</p>
+    <h2 class="section-title">Professional Summary</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">100K+</div>
+        <div class="metric-label">Users Protected</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">34</div>
+        <div class="metric-label">Global Regions</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">8+</div>
+        <div class="metric-label">Years at PANW</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">50+</div>
+        <div class="metric-label">Homelab Services</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p>
+        Senior Security Consultant and subject matter expert with <strong>8+ years of
+        customer-facing experience at Palo Alto Networks</strong> spanning Technical Support,
+        Customer Success, Solutions Architecture, and Professional Services.
+      </p>
+      <br>
+      <p>
+        Currently embedded as the <strong>dedicated technical advisor</strong> for one of PANW's
+        largest global SASE engagements — 100,000+ users across 34+ regions on
+        AWS, Azure, and GCP.
+      </p>
+      <br>
+      <p>
+        Pioneer in applying <strong>Large Language Model tools to security operations</strong> with
+        documented productivity gains adopted at the team level. Hands-on Python
+        and Terraform automation, AI/ML security research (OWASP Top 10 for LLMs),
+        and deep expertise across PAN-OS, Prisma Access, Prisma Cloud, and NGFW.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── AI-Enhanced Engineering ──────────────── -->
+  <section id="ai">
+    <p class="section-label">// AI-Enhanced Engineering</p>
+    <h2 class="section-title">Pioneering AI in Security Operations</h2>
+
+    <div class="ai-pillars">
+      <div class="ai-card">
+        <div class="ai-card-icon">⚡</div>
+        <h3>Applied AI Workflows</h3>
+        <p>
+          Built and documented AI-enhanced engineering workflows using LLM tools
+          that measurably accelerate security operations — from automated analysis
+          to intelligent documentation generation.
+        </p>
+        <span class="highlight">5-10 hrs/week saved</span>
+        <ul>
+          <li>Practices adopted company-wide across engineering teams</li>
+          <li>Claude Code as a force multiplier for security consulting</li>
+          <li>AI-powered infrastructure automation and monitoring</li>
+        </ul>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">🛡️</div>
+        <h3>AI Security Research</h3>
+        <p>
+          Active research in LLM security, covering threat modeling, vulnerability
+          assessment, and defensive strategies for AI-integrated systems.
+        </p>
+        <span class="highlight">OWASP LLM Top 10</span>
+        <ul>
+          <li>AI red teaming and model scanning methodologies</li>
+          <li>Prompt injection defense and LLM guardrails</li>
+          <li>Local LLM inference lab (Ollama, PyTorch on Proxmox)</li>
+        </ul>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">🔧</div>
+        <h3>AI-Powered Diagnostic Tools</h3>
+        <p>
+          Purpose-built tools that combine domain expertise with AI capabilities
+          to accelerate troubleshooting and analysis workflows.
+        </p>
+        <span class="highlight">Production tooling</span>
+        <ul>
+          <li>GlobalProtect log analyzer — automated pattern detection</li>
+          <li>PCAP analyzer — AI-assisted packet capture analysis</li>
+          <li>AI agent pipelines for infrastructure monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ──────────────────────────── -->
+  <section id="experience">
+    <p class="section-label">// Experience</p>
+    <h2 class="section-title">Career at Palo Alto Networks</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">December 2020 — Present</div>
+        <h3 class="timeline-role">Extended Expertise Consultant (Professional Services)</h3>
+        <p class="timeline-company">Palo Alto Networks — Embedded at Cummins Inc.</p>
+        <p class="timeline-location">Santa Clara, CA</p>
+        <ul class="timeline-bullets">
+          <li>Subject matter expert and embedded senior technical consultant for Cummins' global Prisma Access deployment — 100,000+ users across 34+ regions on AWS and Azure</li>
+          <li>Single technical bridge between customer leadership, PANW engineering, TAC, and partner teams</li>
+          <li>Built Python automation that reduced DNS config management from 25-35 hours to under 1 minute across 18 global regions (2,700+ manual entries eliminated)</li>
+          <li>Pioneered AI-enhanced engineering workflows using LLM tools — saving 5-10 hours/week with practices adopted company-wide</li>
+          <li>Led GlobalProtect rollout from 2,000 to 52,000+ users (2,500 users/day peak deployment)</li>
+          <li>Engineered China tenant architecture pivot — migrated mobile users via Hong Kong/Singapore, caught BGP timer misconfigurations before outage</li>
+          <li>Built SCM SDK address group converter with OAuth 2.0, batch processing at 200-400 objects/min</li>
+          <li>Identified and remediated 4,000 disabled rules, 1,100+ unused services, 600+ unused address objects in Panorama</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">August 2019 — December 2020</div>
+        <h3 class="timeline-role">Customer Success Engineer, Network Security (Prisma Access)</h3>
+        <p class="timeline-company">Palo Alto Networks</p>
+        <p class="timeline-location">Santa Clara, CA</p>
+        <ul class="timeline-bullets">
+          <li>Drove 40% Prisma Access adoption across 20 enterprise clients through solutions architecture and cloud security assessments (AWS/Azure)</li>
+          <li>Led migration of 10,000+ L4/L7 proxy rules to NGFW explicit proxy — reduced policy conflicts 60%, boosted performance 20%</li>
+          <li>Designed Zero Trust architectures: secure web gateways, network segmentation, advanced packet inspection for multinational networks</li>
+          <li>Delivered QBRs and operational presentations to executive stakeholders</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">July 2017 — August 2019</div>
+        <h3 class="timeline-role">Technical Support Engineer (Prisma Access)</h3>
+        <p class="timeline-company">Palo Alto Networks</p>
+        <p class="timeline-location">Santa Clara, CA</p>
+        <ul class="timeline-bullets">
+          <li>Customer-facing support for cloud-based NGFW, Panorama, and early Prisma Access — troubleshooting routing, VPN, and security issues</li>
+          <li>Hardened authentication: SAML, SSO, MFA integrations (Okta, Azure AD) across AWS, Azure, and GCP</li>
+          <li>Collaborated with engineering on complex escalations, contributing field insights to product development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ──────────────────────────────── -->
+  <section id="skills">
+    <p class="section-label">// Skills</p>
+    <h2 class="section-title">Technical Expertise</h2>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Security &amp; Networking</h3>
+        <div class="skill-tags">
+          <span class="skill-tag red">Prisma Access (SASE/SSE)</span>
+          <span class="skill-tag red">PAN-OS NGFW</span>
+          <span class="skill-tag red">Panorama</span>
+          <span class="skill-tag red">GlobalProtect / ZTNA 2.0</span>
+          <span class="skill-tag red">Strata Cloud Manager</span>
+          <span class="skill-tag red">Zero Trust Architecture</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Cloud &amp; SASE Infrastructure</h3>
+        <div class="skill-tags">
+          <span class="skill-tag yellow">AWS (SASE deployments)</span>
+          <span class="skill-tag yellow">Azure (SASE deployments)</span>
+          <span class="skill-tag yellow">GCP (SASE deployments)</span>
+          <span class="skill-tag yellow">Multi-cloud networking</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Automation &amp; Development</h3>
+        <div class="skill-tags">
+          <span class="skill-tag green">Python (PAN-OS SDK, SCM SDK)</span>
+          <span class="skill-tag green">Terraform / Ansible</span>
+          <span class="skill-tag green">REST API Automation</span>
+          <span class="skill-tag green">OAuth 2.0</span>
+          <span class="skill-tag green">CI/CD (Semaphore)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>AI &amp; Machine Learning</h3>
+        <div class="skill-tags">
+          <span class="skill-tag purple">LLM Security (OWASP Top 10)</span>
+          <span class="skill-tag purple">AI Red Teaming</span>
+          <span class="skill-tag purple">Model Scanning</span>
+          <span class="skill-tag purple">Claude Code / LLM Tooling</span>
+          <span class="skill-tag purple">Ollama / PyTorch</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Infrastructure</h3>
+        <div class="skill-tags">
+          <span class="skill-tag blue">Docker / Proxmox / LXC</span>
+          <span class="skill-tag blue">Linux (Debian/Ubuntu)</span>
+          <span class="skill-tag blue">Graylog / OpenSearch</span>
+          <span class="skill-tag blue">Wazuh XDR</span>
+          <span class="skill-tag blue">Prometheus / Grafana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ────────────────────────────── -->
+  <section id="projects">
+    <p class="section-label">// Projects</p>
+    <h2 class="section-title">What I Build</h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <h3>AI-Integrated Security Lab</h3>
+          <span class="project-date">2023 — Present</span>
+        </div>
+        <p>
+          50+ service security research environment across a 4-node Proxmox cluster
+          with PA-440 NGFW (PAN-OS 11.2) and defense-in-depth across 6 VLANs.
+          Local LLM inference, AI agent pipelines, OWASP Top 10 LLM threat testing.
+          Terraform + Ansible IaC, Docker orchestration, Semaphore CI/CD, centralized
+          SIEM (Graylog + OpenSearch), XDR (Wazuh), and Prometheus/Grafana observability.
+        </p>
+        <a href="https://mareox.github.io/homelab-journal/" class="project-link" target="_blank" rel="noopener">
+          Read the build logs →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Prisma Access DNS Automation</h3>
+          <span class="project-date">2025</span>
+        </div>
+        <p>
+          Python automation for DNS config management across 18 global Prisma Access
+          regions — 150 internal domains simultaneously. Reduced deployment from
+          25-35 hours to under 1 minute (99.9% reduction), eliminating 2,700+
+          manual entries.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>SCM Address Group Converter</h3>
+          <span class="project-date">2025</span>
+        </div>
+        <p>
+          Enterprise Python tool using Strata Cloud Manager SDK to convert static
+          address groups to dynamic tag-based groups at scale. OAuth 2.0 auth,
+          intelligent batch processing (200-400 objects/min), comprehensive
+          backup/rollback, exponential backoff retry logic.
+        </p>
+        <a href="https://github.com/mareox/panw-script_group-addr-static-to-dynamic" class="project-link" target="_blank" rel="noopener">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Troubleshooting Tools</h3>
+          <span class="project-date">2025</span>
+        </div>
+        <p>
+          AI-powered diagnostic utilities including a GlobalProtect log analyzer
+          for automated pattern detection and a PCAP analyzer for AI-assisted
+          packet capture analysis. Built to accelerate security troubleshooting workflows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Certifications ──────────────────────── -->
+  <section id="certifications">
+    <p class="section-label">// Certifications</p>
+    <h2 class="section-title">Credentials</h2>
+
+    <ul class="certs-list">
+      <li class="cert-item">
+        <span class="cert-year">2024</span>
+        <span class="cert-name"><span class="cert-highlight">PCNSE</span> — Palo Alto Networks Certified Network Security Engineer (renewed)</span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-year">2019</span>
+        <span class="cert-name"><span class="cert-highlight">PCNSE</span> — Palo Alto Networks Certified Network Security Engineer (initial)</span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-year">2018</span>
+        <span class="cert-name">CCNA CyberOps</span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-year">2017</span>
+        <span class="cert-name">CCNA Security</span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-year">2016</span>
+        <span class="cert-name">CCNA Routing &amp; Switching</span>
+      </li>
+    </ul>
+
+    <br>
+    <p class="section-label">// Education</p>
+    <h2 class="section-title" style="margin-top: 0.5rem;">Education</h2>
+    <div class="education-item">
+      <h3>AA Network Administration — Information Technology</h3>
+      <p>Mission College — Santa Clara, CA — 2015</p>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p>Mario Sanchez — Senior Security Consultant</p>
+        <p>Palo Alto Networks</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/mareox/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/mareox" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://mareox.github.io/homelab-journal/" target="_blank" rel="noopener">Homelab Journal</a></li>
+        <li><a href="static/Mario_Sanchez_Resume.pdf" download>Resume PDF</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ── JavaScript ──────────────────────────── -->
+  <script>
+    // Nav scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Close mobile nav on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll-spy: highlight active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -75% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
