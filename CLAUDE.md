@@ -2,7 +2,7 @@
 
 ## Repository Purpose
 
-Personal CV/resume portfolio site — pure static HTML. Deployed to https://mareox.github.io/cv-page/
+Personal CV/resume portfolio site — pure static HTML. Deployed to https://mareox.github.io/resume/
 
 ## Architecture
 
